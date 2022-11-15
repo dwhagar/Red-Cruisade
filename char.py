@@ -1,5 +1,8 @@
 # Define Character object
 import random
+import os
+
+random.seed(os.urandom())
 
 class Character:
     def __init__(self, name = "Slef", sex = "m", strength = 10, intelligence = 10, stamina = 10, height = 5.5, weight = 190)
@@ -25,5 +28,12 @@ class Monster(Character):
 
     def __init__(self, typ = 0, sex = "m", strength = 10, intelligence = 10, stamina = 10, height = 5.5, weight = 190)
         super().__init__(name, sex, strength, intelligence, stamina, height, weight)
+        self.typ = typ
+        self.name = self.kinds(self.typ)
         
+        gender = random.randrange(0,1)
+        if gender = 0:
+            self.sex = 'm'
+        else:
+            self.sex = 'f'
         
