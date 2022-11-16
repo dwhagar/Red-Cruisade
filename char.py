@@ -29,11 +29,101 @@ class Monster(Character):
     def __init__(self, typ = 0, sex = "m", strength = 10, intelligence = 10, stamina = 10, height = 5.5, weight = 190)
         super().__init__(name, sex, strength, intelligence, stamina, height, weight)
         self.typ = typ
-        self.name = self.kinds(self.typ)
-        
+
         gender = random.randrange(0,1)
         if gender = 0:
             self.sex = 'm'
         else:
             self.sex = 'f'
         
+        if self.typ = 6 or self.typ = 7:
+            self.name = generate_name()
+        else:
+            self.name = self.kinds[self.typ]
+    
+    def generate_name(self):
+        male_names = [
+            "Fred",
+            "Jerry",
+            "Zach",
+            "George",
+            "Brandon",
+            "Obama",
+            "Scotty",
+            "Pippin",
+            "Frank",
+            "Jimmy",
+            "Parker",
+            "Tyler",
+            "Wyatt",
+            "Jacob",
+            "Paul",
+            "Brayden",
+            "Todd",
+            "John",
+            "Tyreek",
+            "Caleb",
+            "Walter",
+            "Kenneth",
+            "Gustavo",
+            "Mike",
+            "Jessie",
+            "Justin",
+            "Dough",
+            "Cayden",
+            "Chad",
+            "Gary",
+            "Curt",
+            "Ernest",
+            "Cole",
+            "Aiden",
+            "Carter"
+        ]
+        female_names = [
+            "Skylar",
+            "Brittany",
+            "Rachel",
+            "Ashley",
+            "Jessica",
+            "Hope",
+            "Karen",
+            "Faith",
+            "Rylee",
+            "Joan",
+            "Tracy",
+            "Izzy",
+            "Dawn",
+            "Becca",
+            "Madison",
+            "Rae",
+            "Naomi",
+            "Addie",
+            "Arial",
+            "Jane",
+            "Jennifer",
+            "Jeanette",
+            "Avery",
+            "Felcia",
+            "Rebecca",
+            "Gabby",
+            "Emma",
+            "Catherine",
+            "Buttecup",
+            "Bubbles",
+            "Pinky",
+            "Patricia"
+        ]
+        
+        result = ""
+        
+        if self.gender = "m":
+            result = self.random_name(male_names)
+        else:
+            result = self.random_name(female_names)
+        
+        return result
+        
+        def random_name(self, names):
+            total = len(names)
+            pick = random.randrange(0, total)
+            return names[pick]
