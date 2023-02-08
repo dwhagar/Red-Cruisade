@@ -15,7 +15,6 @@ class Character:
     def set_attributes(self, strength = 10, intelligence = 10, stamina = 10, height = 5.5, weight = 190)
         self.strength = strength
         self.inteligence = intelligence
-        self.strength = strength
         self.stamina = stamina
         self.height = height
         self.weight = weight
@@ -29,7 +28,9 @@ class Monster(Character):
     def __init__(self, typ = 0, sex = "m", strength = 10, intelligence = 10, stamina = 10, height = 5.5, weight = 190)
         super().__init__(name, sex, strength, intelligence, stamina, height, weight)
         self.typ = typ
-
+    
+        self.fly = False
+        
         gender = random.randrange(0,1)
         if gender = 0:
             self.sex = 'm'
@@ -40,6 +41,27 @@ class Monster(Character):
             self.name = generate_name()
         else:
             self.name = self.kinds[self.typ]
+            
+        self.level_min = 0
+        self.level_max = 0
+        
+        self.resistance = {"melee" : 0,
+        "ranged" : 0,
+        "magic" : 0}
+        
+        self.buffs = {'echo' : False,
+            'poison' : False,
+            'web' : False,
+            'tail' : False,
+            'scream' : False,
+            'rain' : False}
+        
+    def bat_attributes(self):
+        self.hp = random.randrange(2,4)
+        self.fly = True
+        self.speed = random.randrange(80,120)
+        self.level_min = 1
+        self.level_max = random.randrange(3,5)
     
     def generate_name(self):
         male_names = [
